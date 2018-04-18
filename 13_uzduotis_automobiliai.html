@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
+    <title>"13 užduottis automobilis"</title>
+    <style>
+        * {
+            border: 0;
+            padding: 0;
+        }
+        .col{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="rez">
+        <div class="row">
+            <div class="col">
+                DATA
+            </div>
+            <div class="col">
+                AUTOMOBILIO NUMERIS
+            </div>
+            <div class="col">
+                KELIAS METRAIS
+            </div>
+            <div class="col">
+                KELIAS SEKUNDĖMIS
+            </div>
+            <div class="col">
+                GREITIS KM/H
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        var auto = ["2017-07-06 19:59:45", "LRS123", 36000, 36];
+
+        var tekstas = "";
+        if (auto[0]) {
+            tekstas += '<div class="row">';
+            tekstas += stulpelis(auto[0]);
+            tekstas += stulpelis(auto[1]);
+            tekstas += stulpelis(auto[2]);
+            tekstas += stulpelis(auto[3]);
+            tekstas += stulpelis(Math.round(auto[2] / auto[3] / 3.6));
+            tekstas += '</div>';
+        }
+        document.getElementById("rez").innerHTML += tekstas;
+
+        function stulpelis(reiksme) {
+            var td = '<div class="col">' + reiksme + '</div>';
+            return td;
+        }
+    </script>
+</body>
+
+</html>

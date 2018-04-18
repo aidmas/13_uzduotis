@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>"13 užduotis trikampiai"</title>
+    <style>
+        * {
+            border: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="ai"></div>
+    <div id="bi"></div>
+    <div id="ci"></div>
+    <div id="rez"></div>
+
+
+    <script>
+        var a = 3;
+        var b = 5;
+        var c = 4;
+        var m = [a, b, c]
+        m.sort(function (x, y) { return x - y });
+        document.getElementById("ai").innerHTML = "a = " + a;
+        document.getElementById("bi").innerHTML = "b = " + b;
+        document.getElementById("ci").innerHTML = "c = " + c;
+
+        if (m[0] + m[1] > m[2]) {
+            if (m[0] == m[1] && m[0] == m[2]) {
+                document.getElementById("rez").innerHTML = "trikampis lygiakraštis";
+            }
+            else {
+                var status = false;
+                var lygiasonis = false;
+                if (m[0] == m[1] || m[1] == m[2]){
+                    lygiasonis++;
+                }
+                if (m[2] * m[2] == m[1] * m[1] + m[0] * m[0]){
+                    status++
+                }
+                if (status != false && lygiasonis != false){
+                    document.getElementById("rez").innerHTML = "trikampis status lygiašonis";
+                }
+                else {
+                    if (status != false){
+                        document.getElementById("rez").innerHTML = "trikampis status";
+                    }
+                    else if (lygiasonis != false){
+                        document.getElementById("rez").innerHTML = "trikampis lygiašonis";
+                    }
+                    else{
+                        document.getElementById("rez").innerHTML = "betkoks trikampis";
+                    }
+                }
+            }
+        }else{
+            document.getElementById("rez").innerHTML = "tai ne trikampis trikampis";
+        }
+
+
+    </script>
+</body>
+
+</html>
